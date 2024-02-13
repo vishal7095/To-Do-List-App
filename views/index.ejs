@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <h3>TO-DO LIST</h3>
+    <ul>
+        <% for(let list of listings) { %>
+                <li>
+                    <%= list.name %>
+                    <a href="/todo/<%= list._id %>/edit">Edit</a>
+                    <br><br>
+                    <form method="POST" action="/todo/<%= list._id %>?_method=DELETE">
+                        <button>Delete</button>
+                    </form>
+                </li>
+        <% } %>
+    </ul>
+    <form method="GET" action="/todo/new" class="create-form">
+        <button>Create Task</button>
+    </form>
+</body>
+</html>
